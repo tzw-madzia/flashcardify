@@ -1,0 +1,14 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: flashcardify
+  password: warsztaty
+
+development:
+  <<: *default
+  database: flashcardify_development
+
+test:
+  <<: *default
+  database: flashcardify_test
