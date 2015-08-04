@@ -1,4 +1,10 @@
 - if notice
-  %p.alert.alert-success= notice
+  .alert.alert-success.alert-dismissible
+    %button.close{ type: 'button', data: { dismiss: 'alert' } }
+      %span &times;
+    %p= notice
 - if alert
-  %p.alert.alert-danger= alert
+  .alert.alert-danger.alert-dismissible
+    %button.close{ type: 'button', data: { dismiss: 'alert' } }
+      %span &times;
+    %p= alert
