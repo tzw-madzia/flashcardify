@@ -10,6 +10,7 @@
     #navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
+          %li.navbar-text Signed in as #{current_user.email}
           %li= link_to "Log out", destroy_user_session_path
         - else
           %li= link_to "Sign up", new_user_registration_path
