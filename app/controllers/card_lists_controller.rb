@@ -19,6 +19,15 @@ class CardListsController < ApplicationController
     @card_lists = current_user.card_lists
   end
 
+  def show
+    @card_list = CardList.find(params[:id])
+    if @card_list.user_id == current_user.id
+      render :show
+    else
+      render file: 'public/403.html'
+    end
+  end
+
   private
 
   def card_list_params

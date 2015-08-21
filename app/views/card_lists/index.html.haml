@@ -1,10 +1,13 @@
 .panel.panel-default
   .panel-heading
     %h2 My collections
-  %table.table
-    %thead
-      %tr
-        %th Name
-        %th Updated at
-    %tbody
-      = render @card_lists
+  - if @card_lists.count > 0
+    %table.table
+      %thead
+        %tr
+          %th Name
+          %th Updated at
+      %tbody
+        = render @card_lists
+  - else
+    %h2 NIE MA NICZEGO
