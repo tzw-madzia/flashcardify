@@ -3,3 +3,5 @@
     = link_to card_list.name, card_list_path(card_list)
   %td
     = card_list.updated_at
+  %td
+    = link_to 'delete', card_list, method: :delete, data: { confirm: "You sure?" }

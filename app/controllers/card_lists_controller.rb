@@ -28,6 +28,17 @@ class CardListsController < ApplicationController
     end
   end
 
+  def destroy
+    @card_list = CardList.find(params[:id])
+    if @card_list.user_id == current_user.id
+      @card_list.destroy
+      flash[:notice] = 'Collection deleted!'
+      redirect_to card_lists_path
+    else
+      render file: 'public/403.html'
+    end
+  end
+
   private
 
   def card_list_params
