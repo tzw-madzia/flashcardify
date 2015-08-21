@@ -1,0 +1,8 @@
+.panel.panel-default
+  .panel-heading
+    %h2 New collection
+  .panel-body
+    = simple_form_for @card_list do |f|
+      = f.input :name
+      = f.input :description
+      = f.button :submit, 'Create collection', class: "btn btn-primary"
