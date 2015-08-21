@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'simple_form'
 
 group :development, :test do
   gem 'byebug'
