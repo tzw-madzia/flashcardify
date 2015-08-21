@@ -9,6 +9,7 @@
       %a.navbar-brand{ href: root_path } flashcardify
       %ul.nav.navbar-nav.navbar-left
         - if user_signed_in?
+          %li= link_to "Collections", card_lists_path
           %li= link_to "New collection", new_card_list_path
     #navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav.navbar-right

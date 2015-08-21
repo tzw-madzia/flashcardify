@@ -9,10 +9,14 @@ class CardListsController < ApplicationController
     @card_list = current_user.card_lists.build(card_list_params)
     if @card_list.save
       flash[:notice] = 'Collection created!'
-      redirect_to root_url
+      redirect_to card_lists_path
     else
       render :new
     end
+  end
+
+  def index
+    @card_lists = current_user.card_lists
   end
 
   private
