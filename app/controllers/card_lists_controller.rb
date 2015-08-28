@@ -21,6 +21,7 @@ class CardListsController < ApplicationController
 
   def show
     @card_list = CardList.find(params[:id])
+    @cards = @card_list.cards
     if @card_list.user_id == current_user.id
       render :show
     else

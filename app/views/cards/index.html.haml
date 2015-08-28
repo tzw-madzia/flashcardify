@@ -1,0 +1,23 @@
+%h3 Import a CSV File
+= form_tag import_card_list_cards_path, multipart: true do
+  = file_field_tag :file
+  = submit_tag "Import CSV"
+
+.panel.panel-default
+  .panel-heading
+    %h2 Cards
+    %table.table
+      %thead
+        %tr
+          %th primary_language_word
+          %th learning_language_word
+          %th special_character_word
+      %tbody
+        - @cards.each do |card|
+          %tr
+            %td
+              = card.primary_language_word
+            %td
+              = card.learning_language_word
+            %td
+              = card.special_character_word
