@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'simple_form'
 gem 'decent_exposure'
+gem 'rails-backbone'
 
 group :development, :test do
   gem 'byebug'
