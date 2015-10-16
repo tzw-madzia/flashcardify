@@ -24,6 +24,8 @@
       - @cards.each do |card|
         %tr
           %td
+            = check_box_tag "card_#{card.id}", '', false, class: 'card_checkbox'
+          %td
             = card.primary_language_word
           %td
             = card.learning_language_word
