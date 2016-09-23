@@ -24,6 +24,7 @@
         %th Primary language word
         %th Learning language word
         %th Special character word
+        %th Actions
     %tbody
       - @cards.each do |card|
         %tr
@@ -35,3 +36,5 @@
             = card.learning_language_word
           %td
             = card.special_character_word
+          %td
+            = link_to 'delete', card_list_card_path(@card_list, card), method: :delete, data: { confirm: "You sure?" }
