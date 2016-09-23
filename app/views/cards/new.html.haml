@@ -1,0 +1,10 @@
+.panel.panel-default
+  .panel-heading
+    %h2 New card for '#{@card_list.name}' list
+  .panel-body
+    = simple_form_for [@card_list, @card] do |f|
+      = f.input :primary_language_word
+      = f.input :learning_language_word
+      = f.input :special_character_word
+      = f.button :submit, 'Create card', class: "btn btn-primary"
+
