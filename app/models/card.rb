@@ -2,6 +2,7 @@ class Card < ActiveRecord::Base
   require 'csv'
 
   belongs_to :card_list
+  validates :primary_language_word, presence: true
 
   def self.import(file, card_list_id)
     CSV.foreach(file.path, headers: true) do |row|
