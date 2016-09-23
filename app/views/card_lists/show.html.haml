@@ -13,7 +13,10 @@
 
 .panel.panel-default
   .panel-heading
-    %h2 Cards
+    %h2
+      Cards
+      %span
+      = link_to "+ Add new card", new_card_list_card_path(@card_list.id), :class => 'btn btn-success pull-right'
   %table.table
     %thead
       %tr
