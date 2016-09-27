@@ -40,4 +40,5 @@
               = card.special_character_word
             %td
               = link_to 'delete', card_list_card_path(@card_list, card), method: :delete, data: { confirm: "You sure?" }
-    = submit_tag "Delete selected", class: "btn btn-primary"
+    - if @cards.count > 0
+      = submit_tag "Delete selected", class: "btn btn-primary"
