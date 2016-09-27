@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :card_lists do
     resources :cards do
-      collection { post :import }
+      collection do
+        post :import
+        delete 'destroy_multiple'
+      end
     end
   end
 end

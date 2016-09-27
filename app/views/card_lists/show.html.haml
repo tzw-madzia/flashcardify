@@ -17,24 +17,27 @@
       Cards
       %span
       = link_to "+ Add new card", new_card_list_card_path(@card_list.id), :class => 'btn btn-success pull-right'
-  %table.table
-    %thead
-      %tr
-        %th= check_box_tag "checkbox_kurwa"
-        %th Primary language word
-        %th Learning language word
-        %th Special character word
-        %th Actions
-    %tbody
-      - @cards.each do |card|
+
+  = form_tag destroy_multiple_card_list_cards_path(@card_list.id), method: :delete do
+    %table.table
+      %thead
         %tr
-          %td
-            = check_box_tag "card_#{card.id}", '', false, class: 'card_checkbox'
-          %td
-            = card.primary_language_word
-          %td
-            = card.learning_language_word
-          %td
-            = card.special_character_word
-          %td
-            = link_to 'delete', card_list_card_path(@card_list, card), method: :delete, data: { confirm: "You sure?" }
+          %th= check_box_tag "checkbox_kurwa"
+          %th Primary language word
+          %th Learning language word
+          %th Special character word
+          %th Actions
+      %tbody
+        - @cards.each do |card|
+          %tr
+            %td
+              = check_box_tag "card_ids[]", card.id, false, class: 'card_checkbox'
+            %td
+              = card.primary_language_word
+            %td
+              = card.learning_language_word
+            %td
+              = card.special_character_word
+            %td
+              = link_to 'delete', card_list_card_path(@card_list, card), method: :delete, data: { confirm: "You sure?" }
+    = submit_tag "Delete selected", class: "btn btn-primary"

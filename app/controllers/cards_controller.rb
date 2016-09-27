@@ -29,6 +29,15 @@ class CardsController < ApplicationController
     redirect_to card_list_path(@card_list.id)
   end
 
+  def destroy_multiple
+    @card_list = CardList.find(params[:card_list_id])
+    Card.destroy(params[:card_ids])
+    respond_to do |format|
+      format.html { redirect_to card_list_path(@card_list.id) }
+      format.json { head :no_content }
+    end
+  end
+
   def card_params
     params.require(:card).permit(:primary_language_word, :learning_language_word, :special_character_word)
   end
